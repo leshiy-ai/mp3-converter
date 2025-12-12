@@ -1,6 +1,5 @@
 FROM node:18
 
-# Устанавливаем FFmpeg (в Ubuntu он включает OPUS, AAC, всё что нужно)
 RUN apt-get update && \
     apt-get install -y ffmpeg && \
     rm -rf /var/lib/apt/lists/*
