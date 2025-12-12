@@ -1,11 +1,6 @@
 const express = require('express');
 const multer = require('multer');
 const { exec } = require('child_process');
-const fs = require('fs');
-const path = require('path');
-const app = express();
-
-const { exec } = require('child_process');
 
 app.get('/debug', (req, res) => {
   exec('ffmpeg -version', (error, stdout, stderr) => {
@@ -15,6 +10,10 @@ app.get('/debug', (req, res) => {
     res.send(`<pre>${stdout}</pre>`);
   });
 });
+
+const fs = require('fs');
+const path = require('path');
+const app = express();
 
 // Создаём временную папку
 const tmpDir = '/tmp/uploads';
