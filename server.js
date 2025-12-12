@@ -5,10 +5,17 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
-app.get('/debug', async (req, res) => {
-  const { stdout } = await exec('ffmpeg -version');
-  res.send(`<pre>${stdout}</pre>`);
+const { exec } = require('child_process');
+
+app.get('/debug', (req, res) => {
+  exec('ffmpeg -version', (error, stdout, stderr) => {
+    if (error) {
+      return res.status(500).send(`<pre>Error: ${error.message}\n${stderr}</pre>`);
+    }
+    res.send(`<pre>${stdout}</pre>`);
+  });
 });
+
 // Создаём временную папку
 const tmpDir = '/tmp/uploads';
 if (!fs.existsSync(tmpDir)) {
