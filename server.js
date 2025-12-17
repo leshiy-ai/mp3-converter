@@ -561,12 +561,14 @@ app.post('/resize-image', resizeImageUpload.single('image'), async (req, res) =>
       '580p': 580,
       '720p': 720,
       '1080p': 1080
+      '1440p': 1440
+      '2160p': 2160
       '2k': 1440
       '4k': 2160
     };
     const height = resolutions[resolution];
     if (height === undefined) {
-      return res.status(400).send('Invalid resolution. Use: 240p, 360p, 480p, 580p, 720p, 1080p, 2k, 4k');
+      return res.status(400).send('Invalid resolution. Use: 240p, 360p, 480p, 580p, 720p, 1080p, 1440p, 2160p');
     }
 
     const inputPath = req.file.path;
@@ -634,12 +636,14 @@ app.post('/resize-video', resizeUpload.single('video'), async (req, res) => {
       '580p': 580,
       '720p': 720,
       '1080p': 1080
+      '1440p': 1440
+      '2160p': 2160
       '2k': 1440
       '4k': 2160
     };
     const height = resolutions[resolution];
     if (height === undefined) {
-      return res.status(400).send('Invalid resolution. Use: 240p, 360p, 480p, 580p, 720p, 1080p, 2k, 4k');
+      return res.status(400).send('Invalid resolution. Use: 240p, 360p, 480p, 580p, 720p, 1080p, 1440p, 2160p');
     }
 
     const inputPath = req.file.path;
