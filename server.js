@@ -560,10 +560,10 @@ app.post('/resize-image', resizeImageUpload.single('image'), async (req, res) =>
       '480p': 480,
       '580p': 580,
       '720p': 720,
-      '1080p': 1080
-      '1440p': 1440
-      '2160p': 2160
-      '2k': 1440
+      '1080p': 1080,
+      '1440p': 1440,
+      '2160p': 2160,
+      '2k': 1440,
       '4k': 2160
     };
     const height = resolutions[resolution];
@@ -635,10 +635,10 @@ app.post('/resize-video', resizeUpload.single('video'), async (req, res) => {
       '480p': 480,
       '580p': 580,
       '720p': 720,
-      '1080p': 1080
-      '1440p': 1440
-      '2160p': 2160
-      '2k': 1440
+      '1080p': 1080,
+      '1440p': 1440,
+      '2160p': 2160,
+      '2k': 1440,
       '4k': 2160
     };
     const height = resolutions[resolution];
