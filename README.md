@@ -41,8 +41,8 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `/rotate-image` | `POST` | Поворот изображения. | JPG, PNG | `angle` (90, -90, 180) | |
 | `/rotate-video` | `POST` | Поворот видео. | MP4 и др. | `angle` (90, -90, 180) | *≤ 1–2 минут* (Render Free Tier) |
-| `/resize-image` | `POST` | Изменение размера изображения. | JPG, PNG и др. | `resolution` (240p до 1080p) | *≤ 1 минут* |
-| `/resize-video` | `POST` | Изменение разрешения видео. | MP4 и др. | `resolution` (240p до 1080p) | *≤ 2 минут* |
+| `/resize-image` | `POST` | Изменение размера изображения. | JPG, PNG и др. | `resolution` (240p до 2160p) | *≤ 3 минуты* |
+| `/resize-video` | `POST` | Изменение разрешения видео. | MP4 и др. | `resolution` (240p до 2160p) | *≤ 20 минут* |
 | `/video2gif` | `POST` | Создание GIF или видео-стикера из фрагмента видео. | MP4 и др. | `start`, `end`, `format` (gif/mp4), `width`, `fps` | *Фрагмент ≤ 5 секунд.* |
 | `/gif2video` | `POST` | Преобразование анимированного GIF → MP4. | GIF | | |
 
