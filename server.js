@@ -460,6 +460,16 @@ app.post('/video2gif', gifUpload.single('video'), async (req, res) => {
     }
     inputPath = req.file.path;
 
+    // --- 🔍 ПРОВЕРКА ВХОДНОГО ФАЙЛА ---
+    if (!fs.existsSync(inputPath)) {
+      throw new Error(`Input file does not exist: ${inputPath}`);
+    }
+
+    const stats = fs.statSync(inputPath);
+    if (stats.size < 1024) {
+      throw new Error(`Input file is too small or empty: ${inputPath} (${stats.size} bytes)`);
+    }
+
     // Параметры
     const start = req.query.start || '0';
     const end = req.query.end;
@@ -552,8 +562,9 @@ app.post('/video2gif', gifUpload.single('video'), async (req, res) => {
       });
     }
 
+    // --- 🔍 ПРОВЕРКА ВЫХОДНОГО ФАЙЛА ---
     if (!fs.existsSync(outputPath)) {
-      throw new Error('Output file not created');
+      throw new Error(`Output file not created: ${outputPath}`);
     }
 
     const buffer = fs.readFileSync(outputPath);
